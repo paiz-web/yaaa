@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navbar Miring dengan Menu</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-vertical {
+      position: fixed;
+
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: 60px;
+      background-color: #0040ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    #hamburger-menu {
+      color: white;
+      text-decoration: none;
+      margin-bottom: 40px;
+      cursor: pointer;
+    }
+
+   .navbar-vertical h1 {
+  display: block;
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 18rem; /* opsional, untuk spasi */
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar-vertical">
+    <!-- Ikon hamburger -->
+    <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+
+    <!-- Teks navbar miring -->
+    <h1>Motorku</h1>
+  </div>
+
+  <script>
+    feather.replace(); // Inisialisasi ikon feather
+  </script>
+</body>
+</html>

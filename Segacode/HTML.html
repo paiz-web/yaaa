@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Belajar HTML Dasar - SeGaCODE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+  <style>
+    :root {
+      --primary-color: #00963c;
+      --wow-color: black;
+      --secondary-color: #e9fbee;
+      --text-color: #333;
+      --bg-color: #f6fff9;
+      --code-bg: #272822;
+      --code-text: #f8f8f2;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+    }
+
+    /* ===== NAVBAR UTAMA ===== */
+    .navbar {
+      background-color: var(--wow-color);
+      color: white;
+      padding: 1.5rem 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .navbar .menu a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar .menu a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== NAVBAR KEDUA ===== */
+    .subnav {
+      background-color: #2a2a2a;
+      border-top: 1px solid #444;
+      padding: 0.5rem 7%;
+      position: sticky;
+      top: 80px; /* Ini kuncinya */
+      z-index: 999;
+    }
+
+    .subnav-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .subnav a {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid #666;
+      border-radius: 6px;
+      background-color: #1c1c1c;
+      transition: background 0.3s, border 0.3s;
+    }
+
+    .subnav a:hover {
+      background-color: #444;
+      border-color: #04AA6D;
+    }
+
+    .subnav a.active {
+      background-color: #04AA6D;
+      border-color: #04AA6D;
+    }
+
+    /* ===== KONTEN UTAMA ===== */
+    .header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
+    pre {
+      background-color: var(--code-bg);
+      color: var(--code-text);
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    code {
+      background-color: #000000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+
+    .example {
+      background-color: var(--secondary-color);
+      padding: 15px;
+      border-left: 4px solid var(--primary-color);
+      margin-top: 10px;
+      margin-bottom: 30px;
+      border-radius: 6px;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    /* footer section */
+
+footer{
+    background-color: #4d4d4d;
+    padding: 4rem 0 0;
+  }
+  .footerContainer{
+    width: 100%;
+  }
+  .socialIcons{
+    display: flex;
+    justify-content: center;
+  }
+  .socialIcons a{
+    text-decoration: none;
+    padding:  0.5rem;
+    background-color: #ffffff;
+    margin: 1.5rem;
+    border-radius: 10%;
+  }
+  .socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+  }
+  /* Hover affect on social media icon */
+  .socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+  }
+  .socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+  }
+  .footerNav{
+    margin: 30px 0;
+  }
+  .footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  .footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+  
+  }
+  .footerNav ul li a:hover{
+    opacity: 1;
+  }
+  .footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+  }
+  .footerBottom p{
+    color: white;
+  }
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <div class="navbar">
+    <div class="logo">SeGa<a href="index.html"><span style="color: #00963c">CODE</span></a>.</div>
+
+  </div>
+
+  <!-- NAVIGATION BAR KEDUA -->
+  <div class="subnav">
+    <div class="subnav-container">
+      <a href="#" class="active">HTML</a>
+      <a href="CSS.HTML">CSS</a>
+      <a href="JS.html">JavaScript</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <h2 id="struktur">1. Struktur Dasar HTML</h2>
+    <h3><p>Tag ini adalah struktur HTML yang harus ada saat menggunakan HTML.</p></h3>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Judul Halaman&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <div class="example">
+      <h1>Hello, World!</h1>
+    </div>
+
+    <h2>2. Heading</h2>
+    <h3><p>Tag HTML yang digunakan untuk membuat heading atau judul dalam sebuah halaman web.</p></h3>
+    <pre><code>&lt;h1&gt;Judul Besar&lt;/h1&gt;
+&lt;h2&gt;Subjudul&lt;/h2&gt;</code></pre>
+    <div class="example">
+      <h1>Judul Besar</h1>
+      <h2>Subjudul</h2>
+    </div>
+
+    <h2>3. Paragraf</h2>
+    <h3><p>Tag &lt;p&gt; dalam HTML digunakan untuk membuat paragraf.</p></h3>
+    <pre><code>&lt;p&gt;Ini adalah sebuah paragraf.&lt;/p&gt;</code></pre>
+    <div class="example">
+      <p>Ini adalah sebuah paragraf.</p>
+    </div>
+
+    <h2 id="tautan">4. Tautan</h2>
+    <h3><p>Tautan digunakan untuk menghubungkan halaman satu ke halaman lain, baik di dalam website yang sama maupun ke website lain.</p></h3>
+    <pre><code>&lt;a href="https://segacode.com"&gt;Kunjungi SeGaCODE&lt;/a&gt;</code></pre>
+    <div class="example">
+      <a href="https://segacode.com" target="_blank">Kunjungi SeGaCODE</a>
+    </div>
+
+    <h2 id="gambar">5. Gambar</h2>
+    <h3><p>Tag &lt;img&gt; untuk menampilkan gambar yang kita inginkan. </p></h3>
+    <pre><code>&lt;img src="https://via.placeholder.com/150" alt="Contoh Gambar"&gt;</code></pre>
+    <div class="example">
+      <img src="https://via.placeholder.com/150" alt="Contoh Gambar">
+    </div>
+
+    <h2>6. Daftar</h2>
+    <h3><p>&lt;ul&gt; untuk membuat daftar tidak berurutan (bullet point).</p></h3>
+    <h3><p>&lt;ol&gt; digunakan untuk membuat daftar berurutan (dengan angka atau huruf).</p></h4>
+    <h4><p>Di dalam kedua elemen tersebut, kita menggunakan &ltli&gt; (list item) untuk mendefinisikan setiap item dalam daftar.</p></h5>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Langkah Pertama&lt;/li&gt;
+  &lt;li&gt;Langkah Kedua&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    <div class="example">
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
+      <ol>
+        <li>Langkah Pertama</li>
+        <li>Langkah Kedua</li>
+      </ol>
+    </div>
+
+    <h2>7. Tabel</h2>
+    <h3><p>&lt;table&gt;
+      Merupakan elemen utama yang digunakan untuk membuat sebuah tabel.</p></h3>
+      <h4><p>&lt;tr&gt; (table row)
+        Digunakan untuk membuat satu baris dalam tabel. Setiap baris bisa berisi beberapa kolom.</p></h4>
+        <h4><p>&lt;th&gt; (table header)
+          Digunakan untuk membuat kolom judul di baris pertama tabel. Biasanya tampil tebal dan rata tengah, untuk menunjukkan bahwa itu adalah nama/label dari kolom.</p></h4>
+    <pre><code>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;Nama&lt;/th&gt;&lt;th&gt;Umur&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Budi&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+    <div class="example">
+      <table>
+        <tr><th>Nama</th><th>Umur</th></tr>
+        <tr><td>Budi</td><td>20</td></tr>
+      </table>
+    </div>
+
+    <h2>Penutup</h2>
+    <p>Ini adalah materi pengantar untuk HTML. Di SeGaCODE, kamu bisa lanjut belajar CSS dan JavaScript agar webmu makin keren!</p>
+  </div>
+  <!--footer section start-->
+<footer>
+    <div class="socialIcons">
+      <a href="https://www.facebook.com/smamda/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/smamdasidoarjo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://x.com/smamda_sda" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://www.smamda.sch.id/web" target="_blank"><i class="fa fa-envelope"></i></a>
+      <a href="https://www.youtube.com/channel/UC6Osjh8gWBJj583D6Z4-rWw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+        <div class="footerNav">
+            <ul><li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="index.html">Recommendation</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2025 SeGaCODE</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,663 @@
+:root{
+    --primary:#00963c;
+    --bg: #010101;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;    
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeSlideZoom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(20px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes fadeSlideDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 1950px;     
+}
+
+/* navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 7%;
+    background-color: rgba(33, 33, 33, 0.934);
+    border-bottom: 2.5px solid #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fadeSlideDown 1s ease-out forwards;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.navbar .navbar-logo span {
+    color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 1.0rem;
+    margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid var(--primary);
+    transform: scaleX(0);
+    transition: 0.10s linear;
+}
+
+.navbar .navbar-nav a:hover::after{
+    transform: scaleX(0.2   );
+}
+.navbar .navbar-extra a {
+    color: #ffffff;
+    margin: 0 0.5rem;
+}
+.navbar .navbar-extra a:hover {
+    color: var(--primary);
+}
+
+#hamburger-menu {
+    display: none;
+}
+
+
+/* hero section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('D:/web 1/Segacode/gambar/wow.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;   
+    position: relative;
+} 
+
+.hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    background: linear-gradient(0deg,rgba(1,1,3,1)8%, rgba(255,255,255,0)50%)
+}
+
+.hero .content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+.hero .content h1 {
+    font-size: 3.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+    line-height: 1.2;
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+.hero .content h1 span {
+    color: var(--primary);
+}
+
+.hero .content p {
+    width: 98%;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 1.7rem;
+    margin-top: 1.6rem;
+    line-height: 1.8;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+/* about section */
+.about {
+    padding: 8rem 7% 1.4rem;
+}    
+
+.about h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom:3rem ;
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+.about span {
+    color: var(--primary);
+}
+
+.about .row {
+    flex: 2 2 100rem;
+    padding: 5rem 2rem;
+}
+
+.about .row .left h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    line-height: 1;
+    font-size: 1.7rem;
+    margin-top: -9%;
+    border: 2px solid #00ff99; /* Warna garis kotak */
+    padding: 5px; /* Ruang antara teks dan garis */
+    border-radius: 10px; /* Membuat sudut kotak lebih halus */
+    background-color: rgba(0, 255, 153, 0.1); /* Warna latar belakang semi transparan */
+    max-width: 23%;
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+.about .row .left p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+    line-height: 2;
+    font-weight: 500;
+    width: 62%;
+    margin-top: -20px;
+    border: 2px solid #00ff99; /* Warna garis kotak */
+    padding: 5px; /* Ruang antara teks dan garis */
+    border-radius: 10px; /* Membuat sudut kotak lebih halus */
+    background-color: rgba(0, 255, 153, 0.1); /* Warna latar belakang semi transparan */
+    max-width: 100%;
+    transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+.about .row .right h3 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    border: 2px solid #00ff99; /* Warna garis kotak */
+    padding: 2px; /* Ruang antara teks dan garis */
+    border-radius: 10px; /* Membuat sudut kotak lebih halus */
+    background-color: rgba(0, 255, 153, 0.1); /* Warna latar belakang semi transparan */
+    max-width: 100%;
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+.about .row .right p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+    line-height: 2;
+    font-weight: 500;
+    width: 100%;
+    border: 2px solid #00ff99; /* Warna garis kotak */
+    padding: 5px; /* Ruang antara teks dan garis */
+    border-radius: 10px; /* Membuat sudut kotak lebih halus */
+    background-color: rgba(0, 255, 153, 0.1); /* Warna latar belakang semi transparan */
+    max-width: 100%;
+    transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+/* menu section */
+.menu {
+    padding: 8rem 7% 1.4rem;
+    --s: 40px; /* Ukuran hexagon */
+  
+    --c: #000000, #343434 0.5deg 119.5deg, #00000000 120deg; /* Hitam */
+    --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+    --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+    --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+  
+    background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+      var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+      var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+  
+    background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+    
+}
+
+.menu h2 span {
+    color: var(--primary);
+
+}
+
+.menu h2 {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: #ffffff;
+    background-color: rgb(0, 0, 0);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px  var(--primary);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom:2rem;
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+}
+
+.menu .list {
+    gap: 10px;
+    display: flex;
+    justify-content: center; /* Mengatur gambar ke kanan */
+    align-items: center;
+    height: 40rem;
+  }
+  
+  .menu .list img {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 20rem;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: bounceIn 1s ease-out forwards;
+  }
+
+    .menu .item:nth-child(1) img { animation-delay: 0.4s; }
+        .menu .item:nth-child(2) img { animation-delay: 0.6s; }
+        .menu .item:nth-child(3) img { animation-delay: 0.8s; }
+  
+  .menu .list .item {
+    transition: .5s;
+    filter: brightness(0.3);
+  }
+  
+  .menu .list .item:hover {
+    filter: brightness(1);
+    transform: translateY(-5px) scale(1.05);  /* Naik & membesar 5% */
+    box-shadow: 0 20px 25px rgba(109, 109, 109, 0.612);
+  }
+
+  /* rekomedasi section */
+  .rekom {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 20px;
+    background: black;
+    color: white;
+    text-align: center;
+    min-height: 50rem;
+  } 
+
+  .rekom h2 {  
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom:3rem ;
+    opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeSlideZoom 1.5s ease-out forwards;
+  }
+
+  .rekom h5 span {
+    color: var(--primary);
+  }
+
+  .rekom h5 {
+    padding: 2rem;
+    font-size: 2rem;
+    display: inline-block;
+}
+.rekom h4 {
+    font-size: 1.3rem;
+    display: inline-block;
+}
+
+
+
+.wrapper {
+  width: 100%;
+  height: 45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  height: 450px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+}
+
+.card {
+  width: 80px;
+  border-radius: 0.75rem;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 0 10px;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.6s cubic-bezier(.28, -0.03, 0, 0.99);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+}
+
+.card > .row {
+  color: white;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card > .row > .icons {
+  background: #223;
+  color: white;
+  display: flex;
+  border-radius: 50%;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.card > .row .description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 80px;
+  width: 520px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-delay: 0.3s;
+  transition: all 0.3s ease;
+}
+
+.description p {
+  color: #b0b0ba;
+  padding-top: 5px;
+}
+
+.description h4 {
+  text-transform: uppercase;
+}
+
+/* Sembunyikan radio button */
+input {
+  display: none;
+}
+
+/* Saat card dipilih */
+input:checked + label {
+  width: 600px;
+}
+
+input:checked + label .description {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Perbaikan path gambar */
+.card[for="c1"] {
+  background-image: url("../Segacode/gambar/rekHTML.png");
+}
+.card[for="c2"] {
+  background-image: url("../Segacode/gambar/rekCSS.png");
+}
+.card[for="c3"] {
+  background-image: url("../Segacode/gambar/rekJS.png");
+}
+
+/* footer section */
+
+footer{
+    background-color: #4d4d4d;
+    padding: 4rem 0 0;
+  }
+  .footerContainer{
+    width: 100%;
+  }
+  .socialIcons{
+    display: flex;
+    justify-content: center;
+  }
+  .socialIcons a{
+    text-decoration: none;
+    padding:  0.5rem;
+    background-color: #ffffff;
+    margin: 1.5rem;
+    border-radius: 10%;
+  }
+  .socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+  }
+  /* Hover affect on social media icon */
+  .socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+  }
+  .socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+  }
+  .footerNav{
+    margin: 30px 0;
+  }
+  .footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  .footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+  
+  }
+  .footerNav ul li a:hover{
+    opacity: 1;
+  }
+  .footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+  }
+  .footerBottom p{
+    color: white;
+  }
+/* media queries */ 
+
+/*laptop */
+@media (max-width:1366px){
+    html {
+        font-size: 75%;
+    }
+}   
+
+/*tablet */
+@media (max-width:768px){
+    html {
+        font-size: 62.5%;
+}
+
+#hamburger-menu {
+    display: inline-block;
+}
+
+.navbar {
+  padding: 3rem 7%;
+}
+
+.navbar .navbar-logo {
+  font-size: 3rem;
+  font-style: italic;
+}
+
+.navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #ffffff;
+    width: 30rem;
+
+    height: 100vh;
+    transition: 0.40s;
+}
+
+.navbar .navbar-nav.active{
+    right: 0;
+}
+
+.navbar .navbar-nav a{
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+.navbar .navbar-nav a::after{
+    transform-origin: 0 0 ;
+}
+
+.hero .content p {
+  width: 98%;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 1.9rem;
+  margin-top: 1.6rem;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+.about .row {
+    flex-wrap: wrap;
+}
+
+
+.about .row .content {
+    padding: 1rem;
+}
+
+.about .row .left h3 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    margin-top: -6rem;
+    border: 2px solid #00ff99; /* Warna garis kotak */
+    padding: 5px; /* Ruang antara teks dan garis */
+    max-width: 100%;
+}
+
+.about .row .left p {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    margin-top: auto;
+    border: 2px solid #00ff99; /* Warna garis kotak */
+    padding: 5px; /* Ruang antara teks dan garis */
+    max-width: 100%;
+    width: 100%;
+}
+
+.menu {
+    background-color: #272727;
+}
+.menu .list {
+    gap: 10px;
+    height: 30rem;
+}
+
+.menu .list .item {
+    filter: none !important;
+    transition: none !important;
+}
+
+.menu .list .item:hover {
+    transform: translateY(-10px) scale(1.05);  /* Naik & membesar 5% */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    filter: none !important;  /* Pastikan efek hover dimatikan */
+}
+
+.menu .list .item img {
+     border-radius: 15px;
+     width: 103%;  /* Gambar akan menjadi 80% dari lebar layar */
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #000000;
+      box-shadow: 0 100px 80px rgba(0, 0, 0, 0.2);
+      transition: transform 0.10s ease;
+} 
+
+.rekom .wrapper {
+    height: 23rem;
+}
+
+.rekom .container {
+    transform: scale(0.5);
+  }
+}
+ 
+/*handphone*/
+@media (max-width:450px){
+    html {
+        font-size:55%;
+    }
+}
