@@ -380,6 +380,27 @@ html, body {
 /* ============================
    DARK MODE STYLES
 ============================ */
+
+.logo {
+  height: 50px;
+}
+
+/* default: light mode */
+.logo-light {
+  display: none;
+}
+
+/* dark mode */
+.dark-mode .logo-dark {
+  display: none;
+}
+
+.dark-mode .logo-light {
+  display: inline;
+}
+
+
+
 .dark-mode .star-field {
     display: block;
 }
@@ -461,6 +482,30 @@ html, body {
     margin-right: 10px !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
+
+/* ============================
+   SELECT / DROPDOWN - DARK MODE
+============================ */
+.dark-mode select,
+.dark-mode .form-select {
+  background-color: #1f2937 !important; /* dark gray */
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* option di dalam dropdown */
+.dark-mode select option {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+}
+
+/* saat focus */
+.dark-mode select:focus,
+.dark-mode .form-select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25) !important;
+}
+
 
 /* Dark mode styles untuk btn-light */
 .dark-mode .btn-light {
@@ -628,6 +673,8 @@ html, body {
 .dark-mode hr {
     border-color: rgba(255, 255, 255, 0.1) !important;
 }
+
+
 
 /* ============================
    PLANET SYSTEM - DESKTOP ONLY
