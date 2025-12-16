@@ -1,12 +1,7 @@
-// ============================
-// EDUFUTURE - MAIN JAVASCRIPT
-// ============================
-console.log('🔧 Loading EduFuture JavaScript...');
 
-// Global variables
 let starCreationInterval;
 
-// Tunggu sampai DOM siap
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('✅ DOM Ready - Initializing application...');
     
@@ -22,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🎉 All components initialized successfully!');
 });
 
-// ==================== DARK MODE FUNCTION ====================
+
 function initializeDarkMode() {
     const darkModeBtn = document.getElementById('themeToggle');
     if (darkModeBtn) {
@@ -32,7 +27,7 @@ function initializeDarkMode() {
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             darkModeBtn.textContent = '☀️';
-            createRealisticStars(); // Create stars immediately if dark mode
+            createRealisticStars(); 
         } else {
             darkModeBtn.textContent = '🌙';
         }
@@ -51,7 +46,7 @@ function initializeDarkMode() {
                 localStorage.setItem('theme', 'dark');
                 console.log('Changed to DARK mode');
                 
-                // Create stars when switching to dark mode
+   
                 setTimeout(() => {
                     createRealisticStars();
                 }, 300);
@@ -60,7 +55,7 @@ function initializeDarkMode() {
                 localStorage.setItem('theme', 'light');
                 console.log('Changed to LIGHT mode');
                 
-                // Clear stars when switching to light mode
+   
                 clearStarCreationInterval();
                 const starField = document.querySelector('.star-field');
                 if (starField) {
@@ -76,7 +71,7 @@ function initializeDarkMode() {
     }
 }
 
-// ==================== MOBILE MENU FUNCTION ====================
+
 function initializeMobileMenu() {
     const menuBtn = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
@@ -92,7 +87,7 @@ function initializeMobileMenu() {
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
             
-            // Hamburger to X animation
+
             const spans = menuBtn.querySelectorAll('span');
             if (spans.length === 3) {
                 spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
@@ -107,7 +102,7 @@ function initializeMobileMenu() {
             overlay.classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // X to hamburger animation
+
             const spans = menuBtn.querySelectorAll('span');
             if (spans.length === 3) {
                 spans[0].style.transform = 'none';
@@ -116,7 +111,7 @@ function initializeMobileMenu() {
             }
         }
         
-        // Event listeners
+
         menuBtn.onclick = function(e) {
             e.preventDefault();
             e.stopPropagation();
@@ -143,7 +138,7 @@ function initializeMobileMenu() {
             return false;
         };
         
-        // ESC key to close
+
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
                 closeMenu();
@@ -158,7 +153,7 @@ function initializeMobileMenu() {
     }
 }
 
-// ==================== PAGE NAVIGATION FUNCTION ====================
+
 function initializePageNavigation() {
     const navLinks = document.querySelectorAll('[data-page]');
     console.log(`✅ Found ${navLinks.length} navigation links`);
@@ -169,18 +164,18 @@ function initializePageNavigation() {
             const pageName = this.getAttribute('data-page');
             console.log('🔗 Navigating to:', pageName);
             
-            // Hide all pages
+
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             
-            // Show target page
+
             const targetPage = document.getElementById(pageName);
             if (targetPage) {
                 targetPage.classList.add('active');
             }
             
-            // Close mobile menu if open
+  
             const mobileNav = document.getElementById('mobileNav');
             const overlay = document.getElementById('navOverlay');
             const menuBtn = document.getElementById('menuToggle');
@@ -190,7 +185,7 @@ function initializePageNavigation() {
                 if (overlay) overlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
                 
-                // Reset hamburger animation
+
                 const spans = menuBtn?.querySelectorAll('span');
                 if (spans && spans.length === 3) {
                     spans[0].style.transform = 'none';
@@ -199,7 +194,7 @@ function initializePageNavigation() {
                 }
             }
             
-            // Scroll to top
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             return false;
@@ -207,7 +202,7 @@ function initializePageNavigation() {
     });
 }
 
-// ==================== CONTACT FORM FUNCTION ====================
+
 function initializeContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -220,16 +215,14 @@ function initializeContactForm() {
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             
-            // Show loading
+
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Mengirim...';
             submitBtn.disabled = true;
             
-            // Simulate API call
+
             setTimeout(() => {
-                // Reset form
                 this.reset();
-                
-                // Show success message
+
                 const successMsg = document.getElementById('successMessage');
                 if (successMsg) {
                     successMsg.classList.add('show');
@@ -238,7 +231,7 @@ function initializeContactForm() {
                     }, 5000);
                 }
                 
-                // Reset button
+
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 
@@ -250,14 +243,14 @@ function initializeContactForm() {
     }
 }
 
-// ==================== STAR SYSTEM FUNCTIONS ====================
+
 function initializeStars() {
-    // Create stars immediately if in dark mode
+
     if (document.body.classList.contains('dark-mode')) {
         createRealisticStars();
     }
     
-    // Recreate stars on window resize
+
     window.addEventListener('resize', function() {
         if (document.body.classList.contains('dark-mode')) {
             setTimeout(createRealisticStars, 300);
@@ -272,18 +265,17 @@ function createRealisticStars() {
         return;
     }
     
-    // Detect screen size
+
     const isMobile = window.innerWidth < 768;
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
     
-    // Adjust star count based on screen size
+
     const backgroundStarCount = isMobile ? 100 : (isTablet ? 150 : 250);
     
     console.log(`⭐ Creating ${backgroundStarCount} stars for ${isMobile ? 'Mobile' : (isTablet ? 'Tablet' : 'Desktop')}`);
     
     starField.innerHTML = '';
-    
-    // Create background stars dengan jumlah sesuai device
+
     for (let i = 0; i < backgroundStarCount; i++) {
         const star = document.createElement('div');
         const sizes = ['tiny', 'small', 'medium', 'large'];
@@ -291,15 +283,15 @@ function createRealisticStars() {
         
         star.className = `star ${sizes[Math.floor(Math.random() * sizes.length)]} ${colors[Math.floor(Math.random() * colors.length)]}`;
         
-        // Random position
+
         star.style.left = `${Math.random() * 100}%`;
         star.style.top = `${Math.random() * 100}%`;
         
-        // Random animation delay dan duration
+
         star.style.animationDelay = `${Math.random() * 10}s`;
         star.style.animationDuration = `${3 + Math.random() * 4}s`;
         
-        // Adjust glow chance based on device
+
         const glowChance = isMobile ? 0.2 : 0.3;
         if (Math.random() > (1 - glowChance)) {
             star.classList.add('glow');
@@ -318,12 +310,12 @@ function clearStarCreationInterval() {
     }
 }
 
-// ==================== PLANET SYSTEM FUNCTIONS ====================
+
 function initializePlanetSystem() {
     const planet = document.querySelector('.main-planet');
     if (!planet) return;
     
-    // Add hover effect (hanya di desktop)
+
     if (window.innerWidth >= 1024) {
         planet.addEventListener('mouseenter', function() {
             this.style.transform = 'translate(-50%, -50%) scale(1.1)';
@@ -334,7 +326,7 @@ function initializePlanetSystem() {
             this.style.transform = 'translate(-50%, -50%) scale(1)';
         });
         
-        // Click effect
+
         planet.addEventListener('click', function() {
             this.style.animation = 'planetPulse 0.5s ease';
             setTimeout(() => {
@@ -388,26 +380,25 @@ function handlePlanetResponsive() {
         const isDesktop = window.innerWidth >= 1024;
         
         if (isDesktop) {
-            // Enable planet animations on desktop
+
             planetSystem.style.display = 'block';
         } else {
-            // Disable planet on mobile/tablet
+
             planetSystem.style.display = 'none';
         }
     }
-    
-    // Check on load
+
     checkScreenSize();
     
     // Check on resize
     window.addEventListener('resize', checkScreenSize);
 }
 
-// ==================== UTILITY FUNCTIONS ====================
+
 function injectCSSFixes() {
     const style = document.createElement('style');
     style.textContent = `
-        /* Ensure buttons are clickable */
+
         .mode-btn, .menu-toggle, #themeToggle, #menuToggle {
             cursor: pointer !important;
             pointer-events: auto !important;
@@ -424,13 +415,13 @@ function injectCSSFixes() {
             pointer-events: auto !important;
         }
         
-        /* Button active states */
+
         .mode-btn:active, .menu-toggle:active {
             transform: scale(0.95);
             transition: transform 0.1s;
         }
         
-        /* Star field improvements */
+
         .star-field {
             position: fixed !important;
             top: 0 !important;
@@ -441,7 +432,7 @@ function injectCSSFixes() {
             z-index: 1 !important;
         }
         
-        /* Planet particle animations */
+
         @keyframes planetPulse {
             0% { transform: translate(-50%, -50%) scale(1); }
             50% { transform: translate(-50%, -50%) scale(1.15); }
@@ -469,20 +460,20 @@ function injectCSSFixes() {
             pointer-events: none;
         }
         
-        /* Responsive star adjustments */
+
         @media (max-width: 768px) {
             .star.tiny { width: 1px; height: 1px; }
             .star.small { width: 1.5px; height: 1.5px; }
             .star.medium { width: 2px; height: 2px; }
             .star.large { width: 2.5px; height: 2.5px; }
             
-            /* Kurangi glow effect di mobile */
+   
             .star.glow {
                 filter: drop-shadow(0 0 1px currentColor);
             }
         }
         
-        /* Tablet adjustments */
+
         @media (min-width: 769px) and (max-width: 1024px) {
             .star.tiny { width: 1.5px; height: 1.5px; }
             .star.small { width: 2px; height: 2px; }
@@ -490,7 +481,7 @@ function injectCSSFixes() {
             .star.large { width: 3px; height: 3px; }
         }
         
-        /* Cloud opacity reduction */
+
         .pcloud {
             opacity: 0.3 !important;
         }
@@ -498,14 +489,13 @@ function injectCSSFixes() {
         .dark-mode .pixel-clouds {
             display: none;
         }
-        
-        /* Hero content protection */
+
         .hero-content {
             position: relative;
             z-index: 10;
         }
         
-        /* Page transitions */
+
         .page {
             display: none;
         }
@@ -520,7 +510,7 @@ function injectCSSFixes() {
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Success message animation */
+
         .success-message {
             display: none;
             animation: slideIn 0.5s ease;
@@ -535,19 +525,19 @@ function injectCSSFixes() {
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Fix untuk form elements */
+
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-color) !important;
             box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25) !important;
         }
         
-        /* Fix untuk button hover effects */
+
         .btn-light:hover {
             transform: translateY(-2px);
             transition: all 0.3s ease;
         }
         
-        /* Fix untuk feature cards */
+
         .feature-card {
             transition: all 0.3s ease !important;
         }
@@ -579,4 +569,153 @@ window.addEventListener('error', function(e) {
     console.error('❌ JavaScript Error:', e.error);
 });
 
-console.log('👋 EduFuture JS loaded successfully!');
+
+
+let currentLevel = 0;
+
+const challenges = [
+  {
+    title: "Level 1",
+    desc: "Buat judul <b>“Coding Class CCP”</b> menggunakan tag <code>&lt;h1&gt;</code>.",
+    category: "HTML Dasar",
+    badge: "Badge HTML Beginner",
+    check: (html) => {
+      const clean = html.replace(/\s+/g, "").toLowerCase();
+      if (/<h1>codingclassccp<\/h1>/.test(clean)) {
+        return { ok: true };
+      }
+      return {
+        ok: false,
+        msg: "❌ Gunakan tag <h1> dengan teks: Coding Class CCP"
+      };
+    }
+  },
+  {
+    title: "Level 2",
+    desc: "Buat paragraf <b>“Belajar coding itu asyik”</b> menggunakan <code>&lt;p&gt;</code>.",
+    category: "HTML Dasar",
+    badge: "Badge HTML Explorer",
+    check: (html) => {
+      const clean = html.replace(/\s+/g, "").toLowerCase();
+      if (/<p>belajarcodingituasyik<\/p>/.test(clean)) {
+        return { ok: true };
+      }
+      return {
+        ok: false,
+        msg: "❌ Gunakan tag <p> dengan teks yang benar"
+      };
+    }
+  },
+  {
+    title: "Level 3",
+    desc: "Tampilkan gambar menggunakan tag <code>&lt;img&gt;</code>.",
+    category: "HTML Media",
+    badge: "Badge Media Creator",
+    check: (html) => {
+      if (/<img[^>]*src=/.test(html)) {
+        return { ok: true };
+      }
+      return {
+        ok: false,
+        msg: "❌ Gunakan tag <img> dengan atribut src"
+      };
+    }
+  },
+  {
+    title: "Level 4",
+    desc: "Ubah warna teks menjadi <b>merah</b> menggunakan CSS.",
+    category: "CSS Dasar",
+    badge: "Badge CSS Beginner",
+    check: (html, css) => {
+      if (/color\s*:\s*red/i.test(css)) {
+        return { ok: true };
+      }
+      return {
+        ok: false,
+        msg: "❌ Gunakan CSS color: red"
+      };
+    }
+  },
+  {
+    title: "Level 5",
+    desc: "Ubah background halaman menjadi <b>biru</b> menggunakan CSS.",
+    category: "CSS Styling",
+    badge: "Badge Styling Master",
+    check: (html, css) => {
+      if (/background(-color)?\s*:\s*(blue|#0000ff)/i.test(css)) {
+        return { ok: true };
+      }
+      return {
+        ok: false,
+        msg: "❌ Gunakan background-color: blue"
+      };
+    }
+  }
+];
+
+const htmlCode = document.getElementById("htmlCode");
+const cssCode = document.getElementById("cssCode");
+const previewFrame = document.getElementById("previewFrame");
+const resultBox = document.getElementById("challengeResult");
+
+function loadChallenge() {
+  const c = challenges[currentLevel];
+
+  document.getElementById("levelTitle").innerHTML =
+    `<i class="fas fa-flag-checkered me-2"></i>${c.title}`;
+
+  document.getElementById("challengeDesc").innerHTML = c.desc;
+
+  document.getElementById("challengeCategory").innerHTML =
+    `<i class="fas fa-layer-group"></i> ${c.category}`;
+
+  document.getElementById("rewardBadge").innerHTML =
+    `<i class="fas fa-medal"></i> ${c.badge}`;
+
+  document.getElementById("progressText").innerText =
+    `Progress: ${currentLevel + 1} / ${challenges.length}`;
+
+  document.getElementById("progressBar").style.width =
+    ((currentLevel + 1) / challenges.length * 100) + "%";
+
+  htmlCode.value = "";
+  cssCode.value = "";
+  previewFrame.srcdoc = "";
+  resultBox.style.display = "none";
+}
+
+function runChallenge() {
+  const preview = `
+    <!doctype html>
+    <html>
+    <head>
+      <style>${cssCode.value}</style>
+    </head>
+    <body>
+      ${htmlCode.value}
+    </body>
+    </html>
+  `;
+  previewFrame.srcdoc = preview;
+}
+
+function checkChallenge() {
+  const c = challenges[currentLevel];
+  const result = c.check(htmlCode.value, cssCode.value);
+
+  resultBox.style.display = "block";
+
+  if (result.ok) {
+    resultBox.innerHTML = "✅ Benar! Lanjut ke level berikutnya.";
+    currentLevel++;
+
+    if (currentLevel < challenges.length) {
+      setTimeout(loadChallenge, 900);
+    } else {
+      resultBox.innerHTML = "🏆 Semua challenge selesai! Kamu luar biasa!";
+    }
+  } else {
+    resultBox.innerHTML = result.msg;
+  }
+}
+window.addEventListener("DOMContentLoaded", loadChallenge);
