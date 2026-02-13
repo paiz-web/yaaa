@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="yok.css">
+    <link rel="stylesheet" href="a.css">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://website-kamu.com/">
+    <meta property="og:url" content="https://Class code.com/">
     <meta property="og:title" content="Judul Keren Website Kamu">
     <meta property="og:description" content="Deskripsi singkat yang muncul di bawah judul saat di-share.">
     <meta property="og:image" content="https://website-kamu.com/images/thumbnail-share.jpg">
@@ -29,8 +29,8 @@
             <!-- Logo dan Brand -->
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img id="navbarLogo" src="logo_smamda_putih2.png" 
-                     class="me-2" width="70" alt="Logo SMAMDA">
-                <span class="brand-name">CodingClass</span>
+                     class="me-2" width="50" alt="Logo SMAMDA">
+                <span class="brand-name">SMAMDA</span>
             </a>
 
             <!-- Toggle Mobile -->
@@ -261,90 +261,121 @@
 
     <!-- =============== HALAMAN GAME =============== -->
     <div id="game" class="page">
-        <section class="section challenge-section">
-            <div class="container">
-                <!-- Header -->
-                <div class="text-center mb-5">
-                    <h2 class="section-title">Coding Challenge</h2>
-                    <p class="section-subtitle">
-                        Belajar coding lewat tantangan interaktif & menyenangkan
-                    </p>
-                </div>
+    <div class="container">
+        <span class="master-badge">
+            <i class="fas fa-code me-2"></i> WEB • IOT • GAME
+        </span>
+        <h1 class="master-title">
+            CODE<span style="background: rgba(255,255,255,0.2); padding: 0 1rem; border-radius: 30px;">MASTERY</span>
+        </h1>
+        <p class="lead" style="color: rgba(255,255,255,0.95); font-size: 1.3rem;">
+            45 Soal • PG + B/S + Esai 
+        </p>
+    </div>
 
-                <div class="row g-4 align-items-stretch">
-                    <!-- Left: Info & Progress -->
-                    <div class="col-lg-4">
-                        <div class="challenge-card">
-                            <h4 class="mb-3" id="levelTitle">
-                                <i class="fas fa-flag-checkered me-2"></i> Level 1
-                            </h4>
-
-                            <p class="challenge-desc" id="challengeDesc">
-                                Buat judul <strong>"Coding Class CCP"</strong> menggunakan tag
-                                <code>&lt;h1&gt;</code>.
-                            </p>
-
-                            <div class="challenge-meta">
-                                <span id="challengeCategory">
-                                    <i class="fas fa-layer-group"></i> HTML Dasar
-                                </span>
-                                <span>
-                                    <i class="fas fa-clock"></i> ±5 menit
-                                </span>
-                            </div>
-
-                            <div class="progress mt-4">
-                                <div class="progress-bar" id="progressBar" style="width: 20%"></div>
-                            </div>
-
-                            <p class="progress-text" id="progressText">
-                                Progress: 1 / 5
-                            </p>
-
-                            <div class="reward" id="rewardBadge">
-                                <i class="fas fa-medal"></i> Badge HTML Beginner
-                            </div>
+    <!-- =============== COURSE CARDS =============== -->
+    <div class="course-grid">
+        <div class="container">
+            <div class="row g-4">
+                <!-- WEB CARD -->
+                <div class="col-lg-4">
+                    <div class="course-card web" onclick="openCourse('web')">
+                        <div class="course-icon web">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--dark);">Web Development</h3>
+                        <p style="color: #64748b; margin-bottom: 1rem;">HTML • CSS • JavaScript • React</p>
+                        <div style="margin: 1rem 0;">
+                            <span class="question-type-badge"><i class="fas fa-list me-1" style="color: var(--web);"></i> 5 PG</span>
+                            <span class="question-type-badge"><i class="fas fa-check-circle me-1" style="color: var(--iot);"></i> 5 B/S</span>
+                            <span class="question-type-badge"><i class="fas fa-pencil-alt me-1" style="color: var(--game);"></i> 5 Esai</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span><i class="fas fa-bolt" style="color: var(--web);"></i> 300 XP</span>
+                            <span><i class="fas fa-tasks" style="color: var(--web);"></i> 15 Soal</span>
+                            <span id="webCardStatus" style="color: var(--web); font-weight: 700; background: var(--web-light); padding: 0.5rem 1.2rem; border-radius: 30px;">Mulai →</span>
                         </div>
                     </div>
-
-                    <!-- Right: Editor -->
-                    <div class="col-lg-8">
-                        <div class="challenge-card">
-                            <div class="editor-grid">
-                                <div>
-                                    <label class="editor-label">HTML</label>
-                                    <textarea id="htmlCode" placeholder="Tulis HTML di sini..."></textarea>
-                                </div>
-
-                                <div>
-                                    <label class="editor-label">CSS</label>
-                                    <textarea id="cssCode" placeholder="Tulis CSS di sini..."></textarea>
-                                </div>
-                            </div>
-
-                            <div class="preview-box mt-3">
-                                <label class="editor-label">Tampilkan</label>
-                                <iframe id="previewFrame"></iframe>
-                            </div>
-
-                            <div class="d-flex gap-2 mt-3">
-                                <button class="btn btn-primary w-50" onclick="runChallenge()">
-                                    <i class="fas fa-play me-2"></i> Tampilkan
-                                </button>
-                                <button class="btn btn-success w-50" onclick="checkChallenge()">
-                                    <i class="fas fa-check-circle me-2"></i> Cek Jawaban
-                                </button>
-                            </div>
-
-                            <div id="challengeResult" class="success-box">
-                                🎉 Level selesai! Lanjut ke tantangan berikutnya.
-                            </div>
+                </div>
+                
+                <!-- IOT CARD -->
+                <div class="col-lg-4">
+                    <div class="course-card iot" onclick="openCourse('iot')">
+                        <div class="course-icon iot">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--dark);">IoT & Robotics</h3>
+                        <p style="color: #64748b; margin-bottom: 1rem;">Arduino • Sensor • ESP32 • Blynk</p>
+                        <div style="margin: 1rem 0;">
+                            <span class="question-type-badge"><i class="fas fa-list me-1" style="color: var(--web);"></i> 5 PG</span>
+                            <span class="question-type-badge"><i class="fas fa-check-circle me-1" style="color: var(--iot);"></i> 5 B/S</span>
+                            <span class="question-type-badge"><i class="fas fa-pencil-alt me-1" style="color: var(--game);"></i> 5 Esai</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span><i class="fas fa-bolt" style="color: var(--iot);"></i> 300 XP</span>
+                            <span><i class="fas fa-tasks" style="color: var(--iot);"></i> 15 Soal</span>
+                            <span id="iotCardStatus" style="color: var(--iot); font-weight: 700; background: var(--iot-light); padding: 0.5rem 1.2rem; border-radius: 30px;">Mulai →</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GAME CARD -->
+                <div class="col-lg-4">
+                    <div class="course-card game" onclick="openCourse('game')">
+                        <div class="course-icon game">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--dark);">Game Development</h3>
+                        <p style="color: #64748b; margin-bottom: 1rem;">Unity • C# • 2D/3D • AI</p>
+                        <div style="margin: 1rem 0;">
+                            <span class="question-type-badge"><i class="fas fa-list me-1" style="color: var(--web);"></i> 5 PG</span>
+                            <span class="question-type-badge"><i class="fas fa-check-circle me-1" style="color: var(--iot);"></i> 5 B/S</span>
+                            <span class="question-type-badge"><i class="fas fa-pencil-alt me-1" style="color: var(--game);"></i> 5 Esai</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span><i class="fas fa-bolt" style="color: var(--game);"></i> 300 XP</span>
+                            <span><i class="fas fa-tasks" style="color: var(--game);"></i> 15 Soal</span>
+                            <span id="gameCardStatus" style="color: var(--game); font-weight: 700; background: var(--game-light); padding: 0.5rem 1.2rem; border-radius: 30px;">Mulai →</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
+
+    <!-- =============== CHALLENGE ARENA =============== -->
+    <div id="challengeArena" class="challenge-arena" style="display: none;">
+        <div class="container">
+            <!-- TABS -->
+            <div class="course-tabs">
+                <div class="course-tab web active" onclick="switchCourse('web')">
+                    <i class="fas fa-code me-2"></i> Web Development
+                </div>
+                <div class="course-tab iot" onclick="switchCourse('iot')">
+                    <i class="fas fa-robot me-2"></i> IoT & Robotics
+                </div>
+                <div class="course-tab game" onclick="switchCourse('game')">
+                    <i class="fas fa-gamepad me-2"></i> Game Development
+                </div>
+            </div>
+
+            <!-- =============== WEB CHALLENGE =============== -->
+            <div id="webChallenge" class="challenge-pane">
+                <!-- Konten Web akan di-load via JavaScript -->
+            </div>
+
+            <!-- =============== IOT CHALLENGE =============== -->
+            <div id="iotChallenge" class="challenge-pane" style="display: none;">
+                <!-- Konten IoT akan di-load via JavaScript -->
+            </div>
+
+            <!-- =============== GAME CHALLENGE =============== -->
+            <div id="gameChallenge" class="challenge-pane" style="display: none;">
+                <!-- Konten Game akan di-load via JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- =============== HALAMAN TENTANG =============== -->
     <div id="tentang" class="page">
@@ -503,7 +534,7 @@
                 <!-- Company Info -->
                 <div class="col-lg-4">
                     <div class="footer-title">
-                        <img src="logo_smamda_putih2.png" alt="CCP Smamda" height="50"> CCP Smamda
+                        <img src="logo_smamda_putih2.png" alt="CCP Smamda" height="50">SMAMDA
                     </div>
                     <p style="color: rgba(255,255,255,0.7); line-height: 1.7;">
                         Coding Class Program (CCP) adalah program pembelajaran yang dirancang untuk 
@@ -577,6 +608,6 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="yik.js"></script>
+    <script src="j.js"></script>
 </body>
 </html>
